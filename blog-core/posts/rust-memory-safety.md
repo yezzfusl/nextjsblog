@@ -65,7 +65,8 @@ fn main() {
     for handle in handles {
         handle.join().unwrap();
     }
-}```
+}
+```
 In this example, `Arc` (Atomic Reference Counting) allows safe sharing of the vector across multiple threads. Rust's ownership system ensures that the data is not freed until all threads have finished using it.
 
 ## Conclusion
