@@ -3,9 +3,10 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 export default function Layout({ children }) {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);  // Initialize to true for default dark mode
 
   useEffect(() => {
+    // Apply dark mode class on initial render and when darkMode changes
     if (darkMode) {
       document.documentElement.classList.add('dark');
     } else {
