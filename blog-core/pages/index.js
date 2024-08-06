@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { motion } from 'framer-motion';
+import Head from 'next/head';
 
 const container = {
   hidden: { opacity: 0 },
@@ -21,25 +22,31 @@ const item = {
 
 export default function Home({ posts }) {
   return (
-    <motion.div
-      initial="hidden"
-      animate="show"
-      variants={container}
-    >
-      <h1 className="text-4xl font-bold mb-8 text-center">Welcome to YEZZFUSL Blog</h1>
-      <motion.div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3" variants={container}>
-        {posts.map((post) => (
-          <motion.div key={post.slug} variants={item}>
-            <Link href={`/blog/${post.slug}`} className="block">
-              <div className="backdrop-filter backdrop-blur-lg bg-white dark:bg-gray-800 bg-opacity-30 dark:bg-opacity-30 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                <h2 className="text-2xl font-semibold mb-2">{post.title}</h2>
-                <p className="text-gray-600 dark:text-gray-400">{post.excerpt}</p>
-              </div>
-            </Link>
-          </motion.div>
-        ))}
+    <>
+      <Head>
+        <title>Home | YezzFusl Blog</title>
+        <meta name="description" content="Welcome to my beautiful blog built with Next.js and TailwindCSS" />
+      </Head>
+      <motion.div
+        initial="hidden"
+        animate="show"
+        variants={container}
+      >
+        <h1 className="text-4xl font-bold mb-8 text-center">Welcome to YezzFusl Blog</h1>
+        <motion.div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3" variants={container}>
+          {posts.map((post) => (
+            <motion.div key={post.slug} variants={item}>
+              <Link href={`/blog/${post.slug}`} className="block">
+                <div className="backdrop-filter backdrop-blur-lg bg-white dark:bg-gray-800 bg-opacity-30 dark:bg-opacity-30 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                  <h2 className="text-2xl font-semibold mb-2">{post.title}</h2>
+                  <p className="text-gray-600 dark:text-gray-400">{post.excerpt}</p>
+                </div>
+              </Link>
+            </motion.div>
+          ))}
+        </motion.div>
       </motion.div>
-    </motion.div>
+    </>
   );
 }
 
