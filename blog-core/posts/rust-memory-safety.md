@@ -1,7 +1,7 @@
 ---
-title: 'Rust's Memory Safety: A Deep Dive into Fearless Concurrency'
+title: 'Rusts Memory Safety: A Deep Dive into Fearless Concurrency'
 date: '2024-03-08'
-excerpt: 'Explore how Rust's ownership system and borrow checker enable safe and efficient memory access, preventing common programming errors and enhancing concurrent programming.'
+excerpt: 'Explore how Rusts ownership system and borrow checker enable safe and efficient memory access, preventing common programming errors and enhancing concurrent programming.'
 ---
 
 # Rust's Memory Safety: A Deep Dive into Fearless Concurrency
@@ -65,8 +65,7 @@ fn main() {
     for handle in handles {
         handle.join().unwrap();
     }
-}
-```
+}```
 In this example, `Arc` (Atomic Reference Counting) allows safe sharing of the vector across multiple threads. Rust's ownership system ensures that the data is not freed until all threads have finished using it.
 
 ## Conclusion
