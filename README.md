@@ -1,5 +1,10 @@
 # nextjsblog
 A modern, SEO-optimized blog built with Next.js, TailwindCSS, and Framer Motion. 
+## Screenshots 
+- 1. ![iPhone-13-PRO-yezzfusl vercel app](https://github.com/user-attachments/assets/cab6a3fd-18be-4563-a351-dce7fc1d33e5)
+- 2. ![iPhone-13-PRO-yezzfusl vercel app (1)](https://github.com/user-attachments/assets/dae50337-f9a7-42a9-b498-45b3049c6a0f)
+- 3. ![iPhone-13-PRO-yezzfusl vercel app (4)](https://github.com/user-attachments/assets/19b05911-26dd-47ac-aa15-da3cd9adf26d)
+- 4. ![iPhone-13-PRO-yezzfusl vercel app (3)](https://github.com/user-attachments/assets/b18dd287-2af3-4755-8857-d7c5fee2e486)
 
 ## 🚀 Features
 
