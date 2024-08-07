@@ -9,11 +9,11 @@ export default function BlogPost({ frontmatter, content, slug }) {
   return (
     <>
       <Head>
-        <title>{frontmatter.title} | My Beautiful Blog</title>
+        <title>{frontmatter.title} | YezzFusl Blog</title>
         <meta name="description" content={frontmatter.excerpt} />
         <meta property="og:title" content={`${frontmatter.title} | My Beautiful Blog`} />
         <meta property="og:description" content={frontmatter.excerpt} />
-        <meta property="og:url" content={`https://yourdomain.com/blog/${slug}`} />
+        <meta property="og:url" content={`https://yezzfusl.vercel.app/blog/${slug}`} />
       </Head>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
