@@ -43,7 +43,7 @@ export default function Search({ posts }) {
   return (
     <>
       <Head>
-        <title>Search Results | YezzFusl Blog</title>
+        <title>Search Results | Yezzfusl Blog</title>
         <meta name="description" content={`Search results for ${q}`} />
       </Head>
       <motion.div
@@ -67,7 +67,9 @@ export default function Search({ posts }) {
           ))}
         </motion.div>
         {searchResults.length === 0 && (
-          <p className="text-center text-gray-600 dark:text-gray-400">No results found for "{q}"</p>
+          <p className="text-center text-gray-600 dark:text-gray-400">
+            No results found for &quot;{q}&quot;
+          </p>
         )}
       </motion.div>
     </>
