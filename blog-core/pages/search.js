@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import fs from 'fs';
 import path from 'path';
@@ -21,22 +23,38 @@ const item = {
   show: { opacity: 1, y: 0 }
 };
 
-export default function Home({ posts }) {
+export default function Search({ posts }) {
+  const router = useRouter();
+  const { q } = router.query;
+  const [searchResults, setSearchResults] = useState([]);
+
+  useEffect(() => {
+    if (q) {
+      const results = posts.filter(
+        post =>
+          post.title.toLowerCase().includes(q.toLowerCase()) ||
+          post.excerpt.toLowerCase().includes(q.toLowerCase()) ||
+          post.author.toLowerCase().includes(q.toLowerCase())
+      );
+      setSearchResults(results);
+    }
+  }, [q, posts]);
+
   return (
     <>
       <Head>
-        <title>Home | YezzFusl Blog</title>
-        <meta name="description" content="Welcome to my beautiful blog built with Next.js and TailwindCSS" />
+        <title>Search Results | YezzFusl Blog</title>
+        <meta name="description" content={`Search results for ${q}`} />
       </Head>
       <motion.div
         initial="hidden"
         animate="show"
         variants={container}
       >
-        <h1 className="text-4xl font-bold mb-8 text-center">Welcome to YezzFusl Blog</h1>
+        <h1 className="text-4xl font-bold mb-8 text-center">Search Results</h1>
         <SearchBar />
         <motion.div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3" variants={container}>
-          {posts.map((post) => (
+          {searchResults.map((post) => (
             <motion.div key={post.slug} variants={item}>
               <Link href={`/blog/${post.slug}`} className="block">
                 <div className="backdrop-filter backdrop-blur-lg bg-white dark:bg-gray-800 bg-opacity-30 dark:bg-opacity-30 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
@@ -48,6 +66,9 @@ export default function Home({ posts }) {
             </motion.div>
           ))}
         </motion.div>
+        {searchResults.length === 0 && (
+          <p className="text-center text-gray-600 dark:text-gray-400">No results found for "{q}"</p>
+        )}
       </motion.div>
     </>
   );

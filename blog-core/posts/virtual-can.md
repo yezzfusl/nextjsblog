@@ -2,6 +2,7 @@
 title: 'Building VirtuCAN: A Virtual CAN Bus Simulation Using AVR Microcontrollers'
 date: '2024-03-08'
 excerpt: 'Learn how to create VirtuCAN, a virtual CAN bus simulation over UART using AVR microcontrollers. This article covers project setup, implementation details, and practical usage.'
+author: 'YEZZFUSL'
 ---
 In the world of automotive and industrial automation, the Controller Area Network (CAN) bus plays a crucial role in facilitating communication between various electronic control units (ECUs). However, working with actual CAN hardware can be challenging and expensive, especially for educational or prototyping purposes. This is where VirtuCAN comes in – a virtual CAN bus simulation that runs over UART using AVR microcontrollers.
 

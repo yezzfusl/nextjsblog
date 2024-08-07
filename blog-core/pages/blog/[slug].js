@@ -9,9 +9,9 @@ export default function BlogPost({ frontmatter, content, slug }) {
   return (
     <>
       <Head>
-        <title>{frontmatter.title} | My Beautiful Blog</title>
+        <title>{frontmatter.title} | YezzFusl Blog</title>
         <meta name="description" content={frontmatter.excerpt} />
-        <meta property="og:title" content={`${frontmatter.title} | YezzFusl Blog`} />
+        <meta property="og:title" content={`${frontmatter.title} | My Beautiful Blog`} />
         <meta property="og:description" content={frontmatter.excerpt} />
         <meta property="og:url" content={`https://yezzfusl.vercel.app/blog/${slug}`} />
       </Head>
@@ -22,7 +22,8 @@ export default function BlogPost({ frontmatter, content, slug }) {
         transition={{ duration: 0.5 }}
       >
         <h1 className="text-4xl font-bold mb-4">{frontmatter.title}</h1>
-        <p className="text-gray-600 dark:text-gray-400 mb-4">{frontmatter.date}</p>
+        <p className="text-gray-600 dark:text-gray-400 mb-2">{frontmatter.date}</p>
+        <p className="text-gray-600 dark:text-gray-400 mb-4">By {frontmatter.author || 'Anonymous'}</p>
         <motion.div
           className="prose dark:prose-invert max-w-none backdrop-filter backdrop-blur-lg bg-white dark:bg-gray-800 bg-opacity-30 dark:bg-opacity-30 p-6 rounded-xl shadow-lg"
           initial={{ opacity: 0 }}

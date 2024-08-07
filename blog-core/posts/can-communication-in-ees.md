@@ -2,6 +2,7 @@
 title: 'Mastering CAN Communication in Embedded Systems with C'
 date: '2024-03-08'
 excerpt: 'Explore the fundamentals of Controller Area Network (CAN) and learn how to implement CAN communication in C for embedded systems.'
+author: 'YEZZFUSL'
 ---
 
 # Mastering CAN Communication in Embedded Systems with C
