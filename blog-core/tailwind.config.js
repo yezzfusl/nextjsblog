@@ -8,12 +8,21 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            color: theme('colors.gray.800'),
-            a: {
-              color: theme('colors.blue.600'),
-              '&:hover': {
-                color: theme('colors.blue.800'),
-              },
+            code: {
+              backgroundColor: theme('colors.gray.100'),
+              color: theme('colors.gray.800'),
+              '&::before': { content: '""' },
+              '&::after': { content: '""' },
+            },
+            'code::before': {
+              content: '""',
+            },
+            'code::after': {
+              content: '""',
+            },
+            pre: {
+              backgroundColor: theme('colors.gray.100'),
+              color: theme('colors.gray.800'),
             },
           },
         },
@@ -26,32 +35,21 @@ module.exports = {
                 color: theme('colors.blue.600'),
               },
             },
-            h1: {
-              color: theme('colors.white'),
-            },
-            h2: {
-              color: theme('colors.white'),
-            },
-            h3: {
-              color: theme('colors.white'),
-            },
-            h4: {
-              color: theme('colors.white'),
-            },
-            h5: {
-              color: theme('colors.white'),
-            },
-            h6: {
-              color: theme('colors.white'),
-            },
-            strong: {
-              color: theme('colors.white'),
-            },
+            h1: { color: theme('colors.white') },
+            h2: { color: theme('colors.white') },
+            h3: { color: theme('colors.white') },
+            h4: { color: theme('colors.white') },
+            h5: { color: theme('colors.white') },
+            h6: { color: theme('colors.white') },
+            strong: { color: theme('colors.white') },
             code: {
-              color: theme('colors.white'),
+              backgroundColor: theme('colors.gray.800'),
+              color: theme('colors.gray.200'),
             },
-            figcaption: {
-              color: theme('colors.gray.400'),
+            figcaption: { color: theme('colors.gray.400') },
+            pre: {
+              backgroundColor: theme('colors.gray.800'),
+              color: theme('colors.gray.200'),
             },
           },
         },
@@ -62,4 +60,4 @@ module.exports = {
     require('@tailwindcss/typography'),
   ],
   darkMode: 'class',
-}
+};
