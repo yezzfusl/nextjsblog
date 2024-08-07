@@ -1,22 +1,21 @@
-// pages/math-challenge.js
 import { useState } from 'react';
 import Head from 'next/head';
 import { motion } from 'framer-motion';
-import MathJax from 'react-mathjax';
+import { MathJaxContext, MathJax } from 'better-react-mathjax';
 
 const challenges = [
   {
-    question: "Solve the following integral: \\int_{0}^{\\pi} \\sin^2(x) dx",
+    question: "Solve the following integral: \\(\\int_{0}^{\\pi} \\sin^2(x) \\, dx\\)",
     answer: "π/2",
     hint: "Consider using the double angle formula for sin²(x)."
   },
   {
-    question: "Find the limit: \\lim_{x \\to 0} \\frac{\\sin(x)}{x}",
+    question: "Find the limit: \\(\\lim_{x \\to 0} \\frac{\\sin(x)}{x}\\)",
     answer: "1",
     hint: "This is a famous limit. Consider using L'Hôpital's rule or the Taylor series expansion of sin(x)."
   },
   {
-    question: "Solve the differential equation: \\frac{dy}{dx} + 2y = e^x",
+    question: "Solve the differential equation: \\(\\frac{dy}{dx} + 2y = e^x\\)",
     answer: "y = 1/3 * e^x + Ce^(-2x)",
     hint: "This is a first-order linear differential equation. Try using an integrating factor."
   }
@@ -46,8 +45,12 @@ export default function MathChallenge() {
     }
   };
 
+  const config = {
+    loader: { load: ["input/asciimath"] }
+  };
+
   return (
-    <MathJax.Provider>
+    <MathJaxContext config={config}>
       <div className="max-w-2xl mx-auto">
         <Head>
           <title>Math Challenge | YezzFusl Blog</title>
@@ -61,7 +64,9 @@ export default function MathChallenge() {
           <h1 className="text-4xl font-bold mb-8 text-center">Math Challenge</h1>
           {!unlockedPost ? (
             <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
-              <MathJax.Node formula={challenges[currentChallenge].question} />
+              <MathJax dynamic>
+                {challenges[currentChallenge].question}
+              </MathJax>
               <form onSubmit={handleSubmit} className="mt-4">
                 <input
                   type="text"
@@ -105,6 +110,7 @@ export default function MathChallenge() {
           )}
         </motion.div>
       </div>
-    </MathJax.Provider>
+    </MathJaxContext>
   );
 }
+
