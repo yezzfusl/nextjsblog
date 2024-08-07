@@ -24,6 +24,9 @@ export default function Layout({ children }) {
             <Link href="/about" className="hover:text-gray-600 dark:hover:text-gray-300">
               About
             </Link>
+            <Link href="/math-challenge" className="hover:text-gray-600 dark:hover:text-gray-300">
+              Math Challenge
+            </Link>
             <motion.button
               onClick={() => setDarkMode(!darkMode)}
               className="p-2 rounded-md bg-gray-200 dark:bg-gray-700"
