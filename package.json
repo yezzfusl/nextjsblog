@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.13",
+    "axios": "^1.7.3",
     "better-react-mathjax": "^2.0.3",
     "framer-motion": "^11.3.21",
     "gray-matter": "^4.0.3",

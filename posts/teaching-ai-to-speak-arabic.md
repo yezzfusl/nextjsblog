@@ -3,6 +3,7 @@ title: 'Teaching AI to Speak Arabic: The Journey of Neural Networks'
 date: '2024-08-07'
 excerpt: 'An in-depth exploration of how artificial intelligence models learn to understand and generate Arabic language, with practical examples using Python, NumPy, and TensorFlow, along with mathematical insights.'
 author: 'YEZZFUSL'
+githubUsername: "yezzfusl"
 ---
 
 # Teaching AI to Speak Arabic: The Journey of Neural Networks

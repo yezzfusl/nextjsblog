@@ -3,6 +3,7 @@ title: 'Rusts Memory Safety: A Deep Dive into Fearless Concurrency'
 date: '2024-03-08'
 excerpt: 'Explore how Rusts ownership system and borrow checker enable safe and efficient memory access, preventing common programming errors and enhancing concurrent programming.'
 author: 'YEZZFUSL'
+githubUsername: "yezzfusl"
 ---
 
 # Rust's Memory Safety: A Deep Dive into Fearless Concurrency

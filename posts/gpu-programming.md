@@ -3,6 +3,7 @@ title: 'Advanced GPU Programming: Mastering Real-Time Ray Tracing and Electromag
 date: '2024-07-08'
 excerpt: 'Explore the cutting-edge intersection of GPU programming, real-time ray tracing, and electromagnetic wave simulation. Delve into the mathematical foundations, implementation techniques, and future applications that are revolutionizing computational graphics and electromagnetics.'
 author: 'YEZZFUSL'
+githubUsername: "yezzfusl"
 ---
 
 ![Advanced GPU Programming](https://www.researchgate.net/profile/Mark-Ilg/publication/265059801/figure/fig2/AS:295942944247809@1447569704461/CUDA-GPU-programming-model.png)
