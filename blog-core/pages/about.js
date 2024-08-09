@@ -24,7 +24,7 @@ const AboutPage = () => {
             className="w-64 h-64 relative rounded-full overflow-hidden shadow-lg"
           >
             <Image
-              src="https://avatars.githubusercontent.com/u/18398621?s=400&u=bf3c3d6fe08236193f8441310fffc288d016bccb&v=4"
+              src="https://avatars.githubusercontent.com/u/18398621?s=400&u=29f05cb776cb70b7e9b4bdfda4c4bc61a7421428&v=4"
               alt="yezzfusl"
               layout="fill"
               objectFit="cover"
