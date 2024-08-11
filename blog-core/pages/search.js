@@ -1,3 +1,4 @@
+// search.js
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
@@ -27,6 +28,7 @@ export default function Search({ posts }) {
   const router = useRouter();
   const { q } = router.query;
   const [searchResults, setSearchResults] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (q) {
@@ -37,6 +39,7 @@ export default function Search({ posts }) {
           post.author.toLowerCase().includes(q.toLowerCase())
       );
       setSearchResults(results);
+      setIsLoading(false);
     }
   }, [q, posts]);
 
@@ -50,23 +53,30 @@ export default function Search({ posts }) {
         initial="hidden"
         animate="show"
         variants={container}
+        className="animate-fadeIn"
       >
         <h1 className="text-4xl font-bold mb-8 text-center">Search Results</h1>
         <SearchBar />
-        <motion.div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3" variants={container}>
-          {searchResults.map((post) => (
-            <motion.div key={post.slug} variants={item}>
-              <Link href={`/blog/${post.slug}`} className="block">
-                <div className="backdrop-filter backdrop-blur-lg bg-white dark:bg-gray-800 bg-opacity-30 dark:bg-opacity-30 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                  <h2 className="text-2xl font-semibold mb-2">{post.title}</h2>
-                  <p className="text-gray-600 dark:text-gray-400 mb-2">{post.excerpt}</p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">By {post.author}</p>
-                </div>
-              </Link>
-            </motion.div>
-          ))}
-        </motion.div>
-        {searchResults.length === 0 && (
+        {isLoading ? (
+          <div className="flex justify-center items-center h-40">
+            <div className="loading-spinner"></div>
+          </div>
+        ) : (
+          <motion.div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3" variants={container}>
+            {searchResults.map((post) => (
+              <motion.div key={post.slug} variants={item}>
+                <Link href={`/blog/${post.slug}`} className="block">
+                  <div className="backdrop-filter backdrop-blur-lg bg-white dark:bg-gray-800 bg-opacity-30 dark:bg-opacity-30 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <h2 className="text-2xl font-semibold mb-2">{post.title}</h2>
+                    <p className="text-gray-600 dark:text-gray-400 mb-2">{post.excerpt}</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">By {post.author}</p>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
+        {!isLoading && searchResults.length === 0 && (
           <p className="text-center text-gray-600 dark:text-gray-400">
             No results found for &quot;{q}&quot;
           </p>
@@ -79,12 +89,10 @@ export default function Search({ posts }) {
 export async function getStaticProps() {
   const postsDirectory = path.join(process.cwd(), 'posts');
   const filenames = fs.readdirSync(postsDirectory);
-
   const posts = filenames.map((filename) => {
     const filePath = path.join(postsDirectory, filename);
     const fileContents = fs.readFileSync(filePath, 'utf8');
     const { data } = matter(fileContents);
-
     return {
       slug: filename.replace('.md', ''),
       title: data.title,

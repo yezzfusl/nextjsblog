@@ -1,3 +1,4 @@
+// index.js
 import Link from 'next/link';
 import fs from 'fs';
 import path from 'path';
@@ -32,6 +33,7 @@ export default function Home({ posts }) {
         initial="hidden"
         animate="show"
         variants={container}
+        className="animate-fadeIn"
       >
         <h1 className="text-4xl font-bold mb-8 text-center">Welcome to YezzFusl Blog</h1>
         <SearchBar />
@@ -56,12 +58,10 @@ export default function Home({ posts }) {
 export async function getStaticProps() {
   const postsDirectory = path.join(process.cwd(), 'posts');
   const filenames = fs.readdirSync(postsDirectory);
-
   const posts = filenames.map((filename) => {
     const filePath = path.join(postsDirectory, filename);
     const fileContents = fs.readFileSync(filePath, 'utf8');
     const { data } = matter(fileContents);
-
     return {
       slug: filename.replace('.md', ''),
       title: data.title,
